@@ -35,7 +35,7 @@
                     <TextBlock x:Name="anotherAccountTextBlock" HorizontalAlignment="Left" Margin="10,220,0,0" TextWrapping="Wrap" Text="Configurations déjà enregistrées" VerticalAlignment="Top" FontSize="16" Width="200"/>
                     <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top" Width="200" FontSize="16">
                         <ComboBoxItem Content="axel@192.168.162.1"/>
-                        <ComboBoxItem Content="mineto@lesuperbidoyondesesmorts.fr"/>
+                        <ComboBoxItem Content="mineto@lesuperbidoyon.fr"/>
                     </ComboBox>
                     <Button x:Name="loginBySaveProcessButton" Content="Utiliser" HorizontalAlignment="Left" Margin="10,310,0,0" VerticalAlignment="Top" Width="65" FontSize="16"/>
                     <Button x:Name="deleteSaveButton" Content="Supprimer" HorizontalAlignment="Left" Margin="80,310,0,0" VerticalAlignment="Top" Width="89" FontSize="16"/>
@@ -62,22 +62,52 @@
                     <RowDefinition Height="10"/>
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="10"/>
-                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="230"/>
+                    <RowDefinition Height="26"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Statistiques pour la pressée" VerticalAlignment="Center" Height="26" Width="198"/>
-                <ComboBox Grid.Row="1" x:Name="comboBox1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Margin="208,0,0,0" Width="200"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Statistiques pour la pressée" VerticalAlignment="Center" Height="26" Width="198"/>
+                <ComboBox Grid.Row="1" x:Name="ChooseSqueezeComboBox" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Margin="208,0,0,0" Width="200"/>
+                <CheckBox x:Name="UseConstantForProductionAverage" Grid.Row="1" Content="Utiliser une constante pour la moyenne de production" Margin="439,0,10,0" VerticalAlignment="Center" FontSize="12" FontWeight="Bold"/>
 
-                <ProgressBar Grid.Row="3" Foreground="#2EB80C" Width="760" Minimum="0" Maximum="100" Value="30" />
-                <TextBlock x:Name="textBlock" Grid.Row="3" TextAlignment="Left" HorizontalAlignment="Left" Margin="20,8,0,10" TextWrapping="Wrap" Width="377" FontSize="16" FontWeight="Bold" Text="Fruits utilisés" />
-                <TextBlock x:Name="textBlock_Copy" Grid.Row="3" TextAlignment="Right" Margin="397,8,20,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Text="Fruits restants" />
+                <ProgressBar x:Name="UsedFruitsProgressBar" Grid.Row="3" Foreground="#2EB80C" Minimum="0" Maximum="100" Value="30" Margin="10,0,10,0" />
+                <TextBlock Grid.Row="3" TextAlignment="Left" HorizontalAlignment="Left" Margin="20,8,0,10" TextWrapping="Wrap" Width="377" FontSize="16" FontWeight="Bold" Text="Fruits utilisés" />
+                <TextBlock Grid.Row="3" TextAlignment="Right" Margin="397,8,20,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Text="Fruits restants" />
 
-                <ProgressBar Grid.Row="5" Foreground="#D1ED1D" Width="760" Minimum="0" Maximum="100" Value="50" />
-                <TextBlock x:Name="textBlock2" Grid.Row="5" TextAlignment="Left" HorizontalAlignment="Left" Margin="20,8,0,10" TextWrapping="Wrap" Width="377" FontSize="16" FontWeight="Bold" Text="Jus produit" />
-                <TextBlock x:Name="textBlock_Copy2" Grid.Row="5" TextAlignment="Right" Margin="397,8,20,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Text="Fruits utilisés" />
+                <ProgressBar x:Name="ProducedJuiceProgressBar" Grid.Row="5" Foreground="#D1ED1D" Minimum="0" Maximum="100" Value="50" Margin="10,0,10,0" />
+                <Line x:Name="ProducedFruitsAverageLine" Grid.Row="5" Stroke="Red" StrokeThickness="2" X1="160" X2="160" Y1="0" Y2="40" />
+                <TextBlock Grid.Row="5" TextAlignment="Left" HorizontalAlignment="Left" Margin="20,8,0,10" TextWrapping="Wrap" Width="377" FontSize="16" FontWeight="Bold" Text="Jus produit" />
+                <TextBlock Grid.Row="5" TextAlignment="Right" Margin="397,8,20,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Text="Fruits utilisés" />
 
-                <Line Grid.Row="5" Stroke="Red" StrokeThickness="2" X1="60" X2="60" Y1="0" Y2="40"></Line>
+                <GroupBox Header="Statistiques globales" Foreground="Red" Grid.Row="7" FontWeight="Bold" Margin="10,0,10,40">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions>
 
+                        <ProgressBar x:Name="GlobalUsedFruitsProgressBar" Grid.Row="1" Foreground="#409DBF" Minimum="0" Maximum="100" Value="30" Margin="10,0,10,0" />
+                        <TextBlock Grid.Row="1" TextAlignment="Left" Foreground="Black" HorizontalAlignment="Left" Margin="20,8,0,10" TextWrapping="Wrap" Width="377" FontSize="16" FontWeight="Bold" Text="Fruits utilisés" />
+                        <TextBlock Grid.Row="1" TextAlignment="Right" Foreground="Black" Margin="397,8,20,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Text="Fruits restants" />
+
+                        <ProgressBar x:Name="GlobalProducedJuiceProgressBar" Grid.Row="3" Foreground="#409DBF" Minimum="0" Maximum="100" Value="30" Margin="10,0,10,0" />
+                        <TextBlock Grid.Row="3" TextAlignment="Left" Foreground="Black" HorizontalAlignment="Left" Margin="20,8,0,10" TextWrapping="Wrap" Width="377" FontSize="16" FontWeight="Bold" Text="Jus produit" />
+                        <TextBlock Grid.Row="3" TextAlignment="Right" Foreground="Black" Margin="397,8,20,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Text="Fruits utilisés" />
+
+                        <ProgressBar x:Name="GlobalUsedStorageProgressBar" Grid.Row="5" Foreground="#409DBF" Minimum="0" Maximum="100" Value="30" Margin="10,0,10,0" />
+                        <TextBlock Grid.Row="5" TextAlignment="Left" Foreground="Black" HorizontalAlignment="Left" Margin="20,8,0,10" TextWrapping="Wrap" Width="377" FontSize="16" FontWeight="Bold" Text="Stockage utilisé" />
+                        <TextBlock Grid.Row="5" TextAlignment="Right" Foreground="Black" Margin="397,8,20,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Text="Stockage restant" />
+                    </Grid>
+                </GroupBox>
+
+                <TextBlock HorizontalAlignment="Left" Margin="10,199,0,0" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Top" Text="Nombre de pressées effectuées :"/>
+                <TextBlock x:Name="NumberOfSqueezes" HorizontalAlignment="Left" Margin="244,199,0,0" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Top" Text="9"/>
+                <TextBlock HorizontalAlignment="Left" Margin="280,199,0,0" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Top" Text="Estimation du nombre de pressées restantes :" Width="355" Grid.RowSpan="2"/>
+                <TextBlock x:Name="EstimateOfSqueezesLeft" HorizontalAlignment="Left" Margin="604,199,0,0" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Top" Text="10" Width="20"/>
 
             </Grid>
         </TabItem>

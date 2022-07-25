@@ -1,0 +1,91 @@
+﻿<Window x:Class="DesktopClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DesktopClient"
+        mc:Ignorable="d"
+        Title="Bidoyon"
+        Icon="/bidoyon.png"
+        Height="450"
+        Width="800"
+        ResizeMode="CanMinimize"
+        >
+    <TabControl x:Name="tabControl">
+
+        <TabItem Header="Connexion" FontSize="16">
+            <DockPanel>
+                <Grid Width="170">
+                    <TextBlock x:Name="serverTextBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Serveur cible" VerticalAlignment="Top" FontSize="16" Width="126" />
+                    <ListBox x:Name="serverListBox" BorderBrush="Black" DockPanel.Dock="Right" Margin="10,35,10,10">
+                        <ListBoxItem Content="Serveur 1" FontSize="12"/>
+                        <ListBoxItem Content="Serveur 2" FontSize="12"/>
+                        <ListBoxItem Content="Serveur 3" FontSize="12"/>
+                    </ListBox>
+                </Grid>
+                <Grid Width="625">
+                    <TextBlock x:Name="usernameTextBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Nom d'utilisateur" VerticalAlignment="Top" FontSize="16" Width="126"/>
+                    <TextBox x:Name="usernameTextBox" HorizontalAlignment="Left" Margin="10,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="16"/>
+                    <TextBlock x:Name="passwordTextBlock" HorizontalAlignment="Left" Margin="10,65,0,0" TextWrapping="Wrap" Text="Mot de passe" VerticalAlignment="Top" FontSize="16" Width="126"/>
+                    <PasswordBox x:Name="passwordTextBox" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="200" FontSize="16"/>
+                    <CheckBox x:Name="saveAccountCheckBox" Content="Enregistrer la configuration" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="12"/>
+                    <CheckBox x:Name="stayConnectedCheckBox" Content="Se connecter automatiquement" HorizontalAlignment="Left" Margin="10,145,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="12"/>
+                    <Button x:Name="loginProcessButton" Content="Se connecter" HorizontalAlignment="Left" Margin="10,170,0,0" VerticalAlignment="Top" Width="109" FontSize="16"/>
+
+                    <TextBlock x:Name="anotherAccountTextBlock" HorizontalAlignment="Left" Margin="10,220,0,0" TextWrapping="Wrap" Text="Configurations déjà enregistrées" VerticalAlignment="Top" FontSize="16" Width="200"/>
+                    <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top" Width="200" FontSize="16">
+                        <ComboBoxItem Content="axel@192.168.162.1"/>
+                        <ComboBoxItem Content="mineto@lesuperbidoyondesesmorts.fr"/>
+                    </ComboBox>
+                    <Button x:Name="loginBySaveProcessButton" Content="Utiliser" HorizontalAlignment="Left" Margin="10,310,0,0" VerticalAlignment="Top" Width="65" FontSize="16"/>
+                    <Button x:Name="deleteSaveButton" Content="Supprimer" HorizontalAlignment="Left" Margin="80,310,0,0" VerticalAlignment="Top" Width="89" FontSize="16"/>
+
+
+
+                </Grid>
+            </DockPanel>
+        </TabItem>
+
+        <TabItem Header="Serveurs" FontSize="16">
+            <Grid>
+
+            </Grid>
+        </TabItem>
+
+        <TabItem Header="Statistiques" FontSize="16">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="26"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Statistiques pour la pressée" VerticalAlignment="Center" Height="26" Width="198"/>
+                <ComboBox Grid.Row="1" x:Name="comboBox1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Margin="208,0,0,0" Width="200"/>
+
+                <ProgressBar Grid.Row="3" Foreground="#2EB80C" Width="760" Minimum="0" Maximum="100" Value="30" />
+                <TextBlock x:Name="textBlock" Grid.Row="3" TextAlignment="Left" HorizontalAlignment="Left" Margin="20,8,0,10" TextWrapping="Wrap" Width="377" FontSize="16" FontWeight="Bold" Text="Fruits utilisés" />
+                <TextBlock x:Name="textBlock_Copy" Grid.Row="3" TextAlignment="Right" Margin="397,8,20,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Text="Fruits restants" />
+
+                <ProgressBar Grid.Row="5" Foreground="#D1ED1D" Width="760" Minimum="0" Maximum="100" Value="50" />
+                <TextBlock x:Name="textBlock2" Grid.Row="5" TextAlignment="Left" HorizontalAlignment="Left" Margin="20,8,0,10" TextWrapping="Wrap" Width="377" FontSize="16" FontWeight="Bold" Text="Jus produit" />
+                <TextBlock x:Name="textBlock_Copy2" Grid.Row="5" TextAlignment="Right" Margin="397,8,20,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Text="Fruits utilisés" />
+
+                <Line Grid.Row="5" Stroke="Red" StrokeThickness="2" X1="60" X2="60" Y1="0" Y2="40"></Line>
+
+
+            </Grid>
+        </TabItem>
+
+        <TabItem Header="Répartition" FontSize="16">
+
+        </TabItem>
+
+    </TabControl>
+</Window>
+

@@ -1,2 +1,2 @@
-# desktop-client
-L'application de bureau utilisée pour la gestion des données
+# Desktop Client
+Cette application est utilisée principalement par l'administrateur pour gérer les données, les utilisateurs...
